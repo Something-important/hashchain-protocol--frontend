@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HashPay - Smart Contract SDK</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="script.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+          document.body.classList.toggle("dark-mode");
+          themeToggle.textContent = document.body.classList.contains(
+            "dark-mode"
+          )
+            ? "🌤️"
+            : "🌜";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">HashPay</div>
+      <button id="theme-toggle">🌜</button>
+    </nav>
+    <header class="hero">
+      <h1>Simplify Service Payments with Our Smart Contract SDK</h1>
+      <p>
+        A Developer-friendly SDK to integrate secure, Trustless, and Automated
+        payments using hash-chain technology.
+      </p>
+      <div class="buttons">
+        <button class="btn">Get Started</button>
+        <button class="btn secondary">Explore More</button>
+      </div>
+      <div class="button-text">
+        <p>Get Started Leads to API Docs / Github Repo</p>
+      </div>
+
+      <div class="Brand-logo-text">
+        <p><b>Trusted by</b> Remarkable Organisation</p>
+        <div class="Brand-logo">
+          <img src="./images/Brandlogo1.png" alt="Brand Logo" />
+          <img src="./images/Brandlogo2.png" alt="Brand Logo" />
+          <img src="./images/Brandlogo3.png" alt="Brand Logo" />
+        </div>
+      </div>
+    </header>
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <p>Step by Step Guide to Use</p>
+      <div class="Steps-container">
+        <div class="steps">
+          <div class="Step-Detail">
+            <div class="Icon-step">
+              <img src="./Images/Frame.png" alt="Step 1" />
+            </div>
+            <div class="Step-Content">
+              <h4>Step 1: Install the SDK</h4>
+              <p>Add our Package to your Project</p>
+            </div>
+          </div>
+          <div class="Step-Detail">
+            <div class="Icon-step">
+              <img src="./Images/Frame.png" alt="Step 1" />
+            </div>
+
+            <div class="Step-Content">
+              <h4>Step 2: Generate a Hash Chain</h4>
+              <p>Secure authentication for pay-per-use transactions.</p>
+            </div>
+          </div>
+
+          <div class="Step-Detail">
+            <div class="Icon-step">
+              <img src="./Images/Frame.png" alt="Step 1" />
+            </div>
+            <div class="Step-Content">
+              <h4>Step 3: Integrate with Smart Contracts</h4>
+              <p>Automate Service Validation & Payments</p>
+            </div>
+          </div>
+          <div class="Step-Detail">
+            <div class="Icon-step">
+              <img src="./Images/Frame.png" alt="Step 1" />
+            </div>
+            <div class="Step-Content">
+              <h4>Step 4: Deploy & Scale</h4>
+              <p>Seamlessly manage transactions with our SDK.</p>
+            </div>
+          </div>
+        </div>
+        <div class="Steps-Img">
+          <img src="./Images/StepsImg.png" alt="Step images" />
+        </div>
+      </div>
+    </section>
+    <section class="features">
+      <h2>Why Choose Our SDK?</h2>
+      <div class="feature-container">
+        <div class="feature">
+          <h3>Plug & Play - Simple API</h3>
+          <p>Simple API for Quick <span>Integration</span></p>
+        </div>
+        <div class="feature">
+          <h3>Trustless Payments - No third-party needed</h3>
+          <p>No need for <span>third-party payment </span>processors</p>
+        </div>
+        <div class="feature">
+          <h3>Supports Multiple Use Cases</h3>
+          <p>
+            <span>Pay-per-use, Subscriptions, and tokenized </span> services.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Security First - Cryptographic hash chains</h3>
+          <p>
+            Transactions are verified using
+            <span>crypto-graphic hash chains</span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="use-cases">
+      <h2>Use Cases</h2>
+      <p>For Developers & Buisnesses</p>
+      <div class="case-container">
+        <div class="case">
+          <h3>Cloud Services - Pay-as-you-go Model</h3>
+          <p>
+            Cloud platforms and API providers can integrate this SDK to enable
+            <span>usage-based billing</span> without requiring frequent on-chain
+            transactions. Users pay only for what they consume, reducing
+            transaction fees while ensuring secure, trustless payments.
+          </p>
+        </div>
+        <div class="case">
+          <h3>Streaming Platforms - Pay-per-view</h3>
+          <p>
+            Streaming services can use this SDK to implement
+            <span>micropayments for individual</span> content access or
+            <span>subscription-based payments.</span> Each view or stream is
+            validated through the hash chain, ensuring seamless and transparent
+            transactions.
+          </p>
+        </div>
+        <div class="case">
+          <h3>Web3 Marketplaces - Digital Transactions</h3>
+          <p>
+            Decentralized marketplaces can leverage the SDK to enable
+            <span>trustless escrow payments.</span> Users can make
+            <span>incremental payments</span> for digital goods or services,
+            ensuring funds are only released when conditions are met.
+          </p>
+        </div>
+        <div class="case">
+          <h3>IoT & Edge Computing - Secure Access</h3>
+          <p>
+            Devices in an <span>IoT network</span> can use hash-based payments to <span>securely
+            verify</span> usage before accessing resources like data, storage, or
+            computing power, reducing reliance on centralized billing systems.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="sdk-integration">
+        <h2>SDK Integration</h2>
+        <p>Supported Language Example</p>
+        <div class="integration-container">
+          <h3>Compatible with : Node.js, React, Python and More!</h3>
+        </div>
+    </section>
+    <section class="cta">
+        <h2>Start Building with HashPay SDK Today !</h2>
+        <button class="btn">Get Started</button>
+    </section>
+  
+
+    <footer>
+      <p>&copy; 2025 HashPay. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
