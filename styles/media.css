@@ -1,0 +1,63 @@
+@media (max-width: 768px) {
+    .feature-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .navbar {
+      flex-direction: row;
+      text-align: center;
+    }
+  
+    .hero h1 {
+      font-size: 3rem;
+    }
+  
+    .hero p {
+      font-size: 0.8rem;
+    }
+  
+    .hero,
+    .how-it-works,
+    .features,
+    .use-cases {
+      padding: 50px 15px;
+      height: auto;
+    }
+  
+    .feature-container {
+      padding: 12px;
+    }
+  
+    .steps,
+    .feature,
+    .case {
+      width: 90%;
+    }
+  
+    .Steps-Img {
+      display: none;
+    }
+  
+    .steps {
+      padding: 24px;
+    }
+  
+    .Step-Detail {
+      width: 95%;
+    }
+  
+    .case-container {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .sdk-integration {
+      padding: 12px;
+    }
+  
+    .integration-container {
+      padding: 12px;
+    }
+  }

@@ -1,0 +1,22 @@
+.cta {
+    text-align: center;
+    padding: 40px;
+    background-color: #fff;
+    margin-top: 8px;
+  }
+  
+  .cta h2 {
+    color: #9125be;
+    margin-top: 12px;
+    font-size: 28px;
+    padding-top: 32px;
+    margin-bottom: 54px;
+  }
+  
+  .dark-mode .cta {
+    background-color: #1c1c1c;
+  }
+  
+  .dark-mode .cta h2 {
+    color: white;
+  }

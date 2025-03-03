@@ -1,0 +1,104 @@
+.white-paper {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff; /* Light mode default */
+}
+
+.white-paper h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #9125be;
+}
+
+.white-paper p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #9e9e9e;
+}
+
+.white-paper-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.white-paper-container embed {
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 800px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.fullscreen-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #6a0dad;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 1100;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.fullscreen-icon:hover {
+  color: #9125be;
+}
+
+/* Full-screen styling */
+.white-paper-container.fullscreen embed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.white-paper-container.fullscreen .fullscreen-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark mode adjustments */
+.dark-mode .white-paper {
+  background-color: #1f1f1f; /* Match other sections */
+}
+
+.dark-mode .white-paper-container embed {
+  border: 1px solid #444;
+  background-color: #2a2a2a; /* Keep PDF viewer slightly distinct */
+}
+
+.dark-mode .white-paper h2 {
+  color: #fff;
+}
+
+.dark-mode .fullscreen-icon {
+  color: #9e9e9e;
+  background-color: rgba(26, 26, 26, 0.8);
+}
+
+.dark-mode .fullscreen-icon:hover {
+  color: #fff;
+}
+
+/* Disable full-screen toggle on small screens */
+@media (max-width: 768px) {
+  .fullscreen-icon {
+    display: none;
+  }
+
+  .white-paper-container embed {
+    height: 50vh;
+    min-height: 300px;
+  }
+}
