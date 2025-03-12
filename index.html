@@ -5,204 +5,336 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="HashChain: A secure, trustless protocol for payments, IoT, and marketplaces using hash-chain technology." />
-  <meta name="keywords" content="HashChain, blockchain, smart contracts, payments, SDK, trustless" />
+    content="HashChain: A secure, trustless protocol for streaming anything using hash-chain technology." />
+  <meta name="keywords" content="HashChain, blockchain, smart contracts, streaming, SDK, trustless" />
   <meta name="author" content="HashChain Team" />
   <title>HashChain - Smart Contract SDK</title>
-  <link rel="stylesheet" href="index.css" />
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9FAFB;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
 
+    .dark-mode {
+      background-color: #374151;
+      color: #F3F4F6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1E3A8A;
+      color: #F3F4F6;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+
+    .logo svg {
+      margin-right: 0.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #1E3A8A, #15803D);
+      color: #F3F4F6;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .slogan {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background-color: #F97316;
+      color: #F3F4F6;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .secondary {
+      background-color: transparent;
+      border: 2px solid #F97316;
+    }
+
+    /* "Talk to Us" button colors */
+    .btn.secondary {
+      color: #111827; /* Dark text in light mode */
+    }
+
+    .dark-mode .btn.secondary {
+      color: #F3F4F6; /* Light text in dark mode */
+    }
+
+    /* Theme toggle button with dynamic background */
+    #theme-toggle {
+      background-color: #E5E7EB; /* Light background in light mode */
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem;
+      color: #111827; /* Dark icon in light mode */
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dark-mode #theme-toggle {
+      background-color: #4B5563; /* Dark background in dark mode */
+      color: #F3F4F6; /* Light icon in dark mode */
+    }
+
+    .features, .use-cases, .how-it-works, .white-paper, .cta {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .feature-container, .case-container, .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature, .case {
+      background-color: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .feature, .dark-mode .case {
+      background-color: #4B5563;
+    }
+
+    .step-detail {
+      text-align: center;
+    }
+
+    .icon-step {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .white-paper-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .cta h2 {
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid #E5E7EB;
+      font-size: 0.875rem;
+    }
+
+    .dark-mode footer {
+      border-top: 1px solid #4B5563;
+    }
+
+    footer a {
+      color: #F97316;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+  </style>
   <script>
-    // document.addEventListener("DOMContentLoaded", () => {
-    //   const themeToggle = document.getElementById("theme-toggle");
-    //   const body = document.body;
+    // Theme toggle with icon and whitepaper link updates
+    document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  const whitepaperLink = document.getElementById('whitepaper-link');
 
-    //   // Check system preference or saved theme
-    //   const savedTheme = localStorage.getItem("theme");
-    //   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    //   if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-    //     body.classList.add("dark-mode");
-    //     themeToggle.textContent = "🌤️";
-    //   } else {
-    //     themeToggle.textContent = "🌜";
-    //   }
+  // Function to update the theme toggle icon and whitepaper link
+  const updateTheme = () => {
+    if (body.classList.contains('dark-mode')) {
+      themeToggle.textContent = '🌞'; // Sun for switching to light mode
+      whitepaperLink.href = './Documents/hashChainProtocolDark.pdf'; // Dark mode whitepaper
+    } else {
+      themeToggle.textContent = '🌜'; // Moon for switching to dark mode
+      whitepaperLink.href = './Documents/hashChainProtocolLight.pdf'; // Light mode whitepaper
+    }
+  };
 
-    //   // Toggle theme with accessibility
-    //   themeToggle.addEventListener("click", () => {
-    //     body.classList.toggle("dark-mode");
-    //     const isDark = body.classList.contains("dark-mode");
-    //     themeToggle.textContent = isDark ? "🌤️" : "🌜";
-    //     themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-    //     localStorage.setItem("theme", isDark ? "dark" : "light");
-    //   });
+  // Check for saved theme in localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
 
-    //   // Keyboard support
-    //   themeToggle.addEventListener("keydown", (e) => {
-    //     if (e.key === "Enter" || e.key === " ") {
-    //       e.preventDefault();
-    //       themeToggle.click();
-    //     }
-    //   });
-    // });
+  // Set initial state based on the theme in localStorage
+  updateTheme();
+
+  // Toggle theme and update on click
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // Save the current theme preference to localStorage
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+
+    updateTheme();
+  });
+});
+
   </script>
 </head>
 
 <body>
+  <!-- Navbar with custom logo -->
   <nav class="navbar">
     <div class="logo">
-      <img src="./Images/hashChain.png" alt="HashPay Logo" style="height: 40px;" />
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 10H30M10 30H30M15 5V35M25 5V35" stroke="#F97316" stroke-width="4"/>
+        <circle cx="15" cy="10" r="2" fill="#F97316"/>
+        <circle cx="25" cy="10" r="2" fill="#F97316"/>
+        <circle cx="15" cy="30" r="2" fill="#F97316"/>
+        <circle cx="25" cy="30" r="2" fill="#F97316"/>
+      </svg>
       HashChain Protocol
     </div>
-    <button id="theme-toggle">🌜</button>
+    <button id="theme-toggle"></button> <!-- Theme toggle with dynamic icon and background -->
   </nav>
+
+  <!-- Hero Section -->
   <header class="hero">
-    <h1>Simplify Streaming Payments with Our Smart Contract SDK</h1>
-    <p>
-      A Developer-friendly SDK to integrate secure, Trustless, and Automated
-      streaming payments using hash-chain technology.
-    </p>
+    <h1>Stream Anything with HashChain SDK</h1>
+    <p>Secure, trustless streaming for payments, data, access, and more.</p>
+    <p class="slogan">Fast, Fair, and Scalable – One Hash at a Time.</p>
     <div class="buttons">
-      <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Get Started</a>
-      <button class="btn secondary">Explore More</button>
-    </div>
-    <div class="button-text">
-      <p>Get Started Leads to API Docs / Github Repo</p>
+      <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Start Now</a>
+      <button class="btn secondary" onclick="document.querySelector('.features').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
     </div>
   </header>
-  <!-- <section class="how-it-works">
-      <h2>How It Works</h2>
-      <p>Step by Step Guide to Use</p>
-      <div class="Steps-container">
-        <div class="steps">
-          <div class="Step-Detail">
-            <div class="Icon-step">
-              <img src="./Images/Frame.png" alt="Step 1" />
-            </div>
-            <div class="Step-Content">
-              <h4>Step 1: Install the SDK</h4>
-              <p>Add our Package to your Project</p>
-            </div>
-          </div>
-          <div class="Step-Detail">
-            <div class="Icon-step">
-              <img src="./Images/Frame.png" alt="Step 1" />
-            </div>
 
-            <div class="Step-Content">
-              <h4>Step 2: Generate a Hash Chain</h4>
-              <p>Secure authentication for pay-per-use transactions.</p>
-            </div>
-          </div>
-
-          <div class="Step-Detail">
-            <div class="Icon-step">
-              <img src="./Images/Frame.png" alt="Step 1" />
-            </div>
-            <div class="Step-Content">
-              <h4>Step 3: Integrate with Smart Contracts</h4>
-              <p>Automate Service Validation & Payments</p>
-            </div>
-          </div>
-          <div class="Step-Detail">
-            <div class="Icon-step">
-              <img src="./Images/Frame.png" alt="Step 1" />
-            </div>
-            <div class="Step-Content">
-              <h4>Step 4: Deploy & Scale</h4>
-              <p>Seamlessly manage transactions with our SDK.</p>
-            </div>
-          </div>
-        </div>
-        <div class="Steps-Img">
-          <img src="./Images/StepsImg.png" alt="Step images" />
-        </div>
-      </div>
-    </section> -->
+  <!-- Features Section -->
   <section class="features">
-    <h2>Why Choose Our SDK?</h2>
+    <h2>Why HashChain?</h2>
     <div class="feature-container">
       <div class="feature">
-        <h3>Plug & Play - Simple API</h3>
-        <p>Simple API for Quick <span>Integration</span></p>
+        <h3>Endless Streaming Possibilities</h3>
+        <p>From payments to data, stream anything securely.</p>
       </div>
       <div class="feature">
-        <h3>Trustless Payments - No third-party needed</h3>
-        <p>No need for <span>third-party payment </span>processors</p>
+        <h3>Hash Chain Security</h3>
+        <p>Built-in cryptographic security for every transaction.</p>
       </div>
       <div class="feature">
-        <h3>Supports Multiple Use Cases</h3>
-        <p><span>Pay-per-use, Subscriptions, and tokenized </span> services.</p>
-      </div>
-      <div class="feature">
-        <h3>Security First - Cryptographic hash chains</h3>
-        <p>Transactions are verified using <span>crypto-graphic hash chains</span></p>
+        <h3>Build It Your Way</h3>
+        <p>Flexible SDK to fit your unique needs.</p>
       </div>
     </div>
   </section>
+
+  <!-- Use Cases Section -->
   <section class="use-cases">
     <h2>Use Cases</h2>
-    <p>For Developers & Businesses</p>
     <div class="case-container">
       <div class="case">
-        <h3>Cloud Services - Pay-as-you-go Model</h3>
-        <p>
-          Cloud platforms and API providers can integrate this SDK to enable
-          <span>usage-based billing</span> without requiring frequent on-chain
-          transactions. Users pay only for what they consume, reducing
-          transaction fees while ensuring secure, trustless payments.
-        </p>
+        <h3>Payments</h3>
+        <p>Pay as you go, securely.</p>
       </div>
       <div class="case">
-        <h3>Streaming Platforms - Pay-per-view</h3>
-        <p>
-          Streaming services can use this SDK to implement
-          <span>micropayments for individual</span> content access or
-          <span>subscription-based payments.</span> Each view or stream is
-          validated through the hash chain, ensuring seamless and transparent
-          transactions.
-        </p>
+        <h3>Security</h3>
+        <p>Lock it down with hash chains.</p>
       </div>
       <div class="case">
-        <h3>Web3 Marketplaces - Digital Transactions</h3>
-        <p>
-          Decentralized marketplaces can leverage the SDK to enable
-          <span>trustless escrow payments.</span> Users can make
-          <span>incremental payments</span> for digital goods or services,
-          ensuring funds are only released when conditions are met.
-        </p>
+        <h3>Access</h3>
+        <p>Control who’s in, effortlessly.</p>
       </div>
       <div class="case">
-        <h3>IoT & Edge Computing - Secure Access</h3>
-        <p>
-          Devices in an <span>IoT network</span> can use hash-based payments to
-          <span>securely verify</span> usage before accessing resources like
-          data, storage, or computing power, reducing reliance on centralized
-          billing systems.
-        </p>
+        <h3>Your Idea Here</h3>
+        <p>What’s next? You decide.</p>
       </div>
     </div>
   </section>
-  <section class="sdk-integration">
-    <h2>SDK Integration</h2>
-    <p>Coming Soon</p>
-    <div class="integration-container">
-      <h3>Stay tuned for support with Node.js, React, Python, and More!</h3>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step-detail">
+        <div class="icon-step">📦</div>
+        <h4>1. Install</h4>
+      </div>
+      <div class="step-detail">
+        <div class="icon-step">🔗</div>
+        <h4>2. Hash</h4>
+      </div>
+      <div class="step-detail">
+        <div class="icon-step">🔌</div>
+        <h4>3. Connect</h4>
+      </div>
+      <div class="step-detail">
+        <div class="icon-step">🚀</div>
+        <h4>4. Stream</h4>
+      </div>
     </div>
   </section>
+
+  <!-- White Paper Section -->
   <section class="white-paper">
-    <h2>Our White Paper</h2>
-    <p>Dive into the details of HashChain Protocol.</p>
+    <h2>White Paper</h2>
+    <p>Dive into the tech behind HashChain.</p>
     <div class="white-paper-container">
-      <span id="fullscreen-toggle" class="fullscreen-icon" title="Toggle Full Screen">🖥️</span>
-      <embed id="pdf-embed" src="./Documents/hashChainProtocolLight.pdf" type="application/pdf">
+      <a id="whitepaper-link" href="./Documents/hashChainProtocolLight.pdf" target="_blank" class="btn">View White Paper</a>
     </div>
   </section>
+
+  <!-- Call to Action Section -->
   <section class="cta">
-    <h2>Start Building with HashPay SDK Today!</h2>
-    <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Get Started</a>
+    <h2>Start Building with HashChain SDK Today!</h2>
+    <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Start Now</a>
+    <a href="mailto:team@hashchain.org" class="btn secondary">Talk to Us</a>
   </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 HashPay. All Rights Reserved.</p>
+    <p>© 2025 HashChain. All Rights Reserved.</p>
+    <p><a href="mailto:team@hashchain.org">Contact Us</a> | <a href="https://twitter.com/hashchain">Twitter</a> | <a href="https://discord.gg/hashchain">Discord</a></p>
   </footer>
 </body>
 
