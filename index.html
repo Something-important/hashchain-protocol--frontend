@@ -1,341 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="HashChain: A secure, trustless protocol for streaming anything using hash-chain technology." />
-  <meta name="keywords" content="HashChain, blockchain, smart contracts, streaming, SDK, trustless" />
-  <meta name="author" content="HashChain Team" />
-  <title>HashChain - Smart Contract SDK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>HashChain SDK - Particle Background</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
-    /* Base styles */
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #F9FAFB;
-      color: #111827;
       margin: 0;
-      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      overflow: hidden;
     }
 
-    .dark-mode {
-      background-color: #374151;
-      color: #F3F4F6;
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #1A1A2E;
+      z-index: 0;  /* Ensure particles layer is behind the content */
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #1E3A8A;
-      color: #F3F4F6;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-    }
-
-    .logo svg {
-      margin-right: 0.5rem;
-    }
-
-    .hero {
+    .content {
+      position: relative;
+      z-index: 1;  /* Content layer should be above particles */
       text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(to right, #1E3A8A, #15803D);
-      color: #F3F4F6;
+      padding: 20vh 20px;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    h1 {
+      font-size: 3rem;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
+    p {
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
 
-    .slogan {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      background-color: #F97316;
-      color: #F3F4F6;
+    a {
+      color: #fff;
       text-decoration: none;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .secondary {
-      background-color: transparent;
-      border: 2px solid #F97316;
-    }
-
-    /* "Talk to Us" button colors */
-    .btn.secondary {
-      color: #111827; /* Dark text in light mode */
-    }
-
-    .dark-mode .btn.secondary {
-      color: #F3F4F6; /* Light text in dark mode */
-    }
-
-    /* Theme toggle button with dynamic background */
-    #theme-toggle {
-      background-color: #E5E7EB; /* Light background in light mode */
-      border: none;
-      border-radius: 4px;
-      padding: 0.5rem;
-      color: #111827; /* Dark icon in light mode */
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .dark-mode #theme-toggle {
-      background-color: #4B5563; /* Dark background in dark mode */
-      color: #F3F4F6; /* Light icon in dark mode */
-    }
-
-    .features, .use-cases, .how-it-works, .white-paper, .cta {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .feature-container, .case-container, .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .feature, .case {
-      background-color: #FFFFFF;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .dark-mode .feature, .dark-mode .case {
-      background-color: #4B5563;
-    }
-
-    .step-detail {
-      text-align: center;
-    }
-
-    .icon-step {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .white-paper-container {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .cta h2 {
-      margin-bottom: 2rem;
+    a:hover {
+      text-decoration: underline;
+      color: #FFD700;
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #1A1A2E;
       text-align: center;
-      padding: 1rem;
-      border-top: 1px solid #E5E7EB;
-      font-size: 0.875rem;
+      padding: 10px 0;
+      color: #fff;
     }
 
-    .dark-mode footer {
-      border-top: 1px solid #4B5563;
-    }
-
-    footer a {
-      color: #F97316;
+    footer .social-media a {
+      margin-right: 10px;
+      color: #fff;
       text-decoration: none;
-      margin: 0 0.5rem;
     }
+
+    footer .social-media a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .content {
+        padding: 15vh 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Loading Spinner */
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      display: block;
+    }
+
+    .spinner {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #00FF00;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
   </style>
-  <script>
-    // Theme toggle with icon and whitepaper link updates
-    document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const whitepaperLink = document.getElementById('whitepaper-link');
-
-  // Function to update the theme toggle icon and whitepaper link
-  const updateTheme = () => {
-    if (body.classList.contains('dark-mode')) {
-      themeToggle.textContent = '🌞'; // Sun for switching to light mode
-      whitepaperLink.href = './Documents/hashChainProtocolDark.pdf'; // Dark mode whitepaper
-    } else {
-      themeToggle.textContent = '🌜'; // Moon for switching to dark mode
-      whitepaperLink.href = './Documents/hashChainProtocolLight.pdf'; // Light mode whitepaper
-    }
-  };
-
-  // Check for saved theme in localStorage
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-  } else {
-    body.classList.remove('dark-mode');
-  }
-
-  // Set initial state based on the theme in localStorage
-  updateTheme();
-
-  // Toggle theme and update on click
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-
-    // Save the current theme preference to localStorage
-    if (body.classList.contains('dark-mode')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-
-    updateTheme();
-  });
-});
-
-  </script>
 </head>
-
 <body>
-  <!-- Navbar with custom logo -->
-  <nav class="navbar">
-    <div class="logo">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10H30M10 30H30M15 5V35M25 5V35" stroke="#F97316" stroke-width="4"/>
-        <circle cx="15" cy="10" r="2" fill="#F97316"/>
-        <circle cx="25" cy="10" r="2" fill="#F97316"/>
-        <circle cx="15" cy="30" r="2" fill="#F97316"/>
-        <circle cx="25" cy="30" r="2" fill="#F97316"/>
-      </svg>
-      HashChain Protocol
-    </div>
-    <button id="theme-toggle"></button> <!-- Theme toggle with dynamic icon and background -->
-  </nav>
+  <!-- Loading Spinner -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Stream Anything with HashChain SDK</h1>
-    <p>Secure, trustless streaming for payments, data, access, and more.</p>
-    <p class="slogan">Fast, Fair, and Scalable – One Hash at a Time.</p>
-    <div class="buttons">
-      <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Start Now</a>
-      <button class="btn secondary" onclick="document.querySelector('.features').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
-    </div>
-  </header>
+  <div id="particles-js"></div>
+  <div class="content">
+    <h1>HashChain Protocol SDK</h1>
+    <p>Fast, Fair, and Scalable – One Hash at a Time.</p>
+    <p><a href="https://github.com/pali101/hashchain-protocol" target="_blank">Get Started</a></p>
+  </div>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why HashChain?</h2>
-    <div class="feature-container">
-      <div class="feature">
-        <h3>Endless Streaming Possibilities</h3>
-        <p>From payments to data, stream anything securely.</p>
-      </div>
-      <div class="feature">
-        <h3>Hash Chain Security</h3>
-        <p>Built-in cryptographic security for every transaction.</p>
-      </div>
-      <div class="feature">
-        <h3>Build It Your Way</h3>
-        <p>Flexible SDK to fit your unique needs.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases Section -->
-  <section class="use-cases">
-    <h2>Use Cases</h2>
-    <div class="case-container">
-      <div class="case">
-        <h3>Payments</h3>
-        <p>Pay as you go, securely.</p>
-      </div>
-      <div class="case">
-        <h3>Security</h3>
-        <p>Lock it down with hash chains.</p>
-      </div>
-      <div class="case">
-        <h3>Access</h3>
-        <p>Control who’s in, effortlessly.</p>
-      </div>
-      <div class="case">
-        <h3>Your Idea Here</h3>
-        <p>What’s next? You decide.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step-detail">
-        <div class="icon-step">📦</div>
-        <h4>1. Install</h4>
-      </div>
-      <div class="step-detail">
-        <div class="icon-step">🔗</div>
-        <h4>2. Hash</h4>
-      </div>
-      <div class="step-detail">
-        <div class="icon-step">🔌</div>
-        <h4>3. Connect</h4>
-      </div>
-      <div class="step-detail">
-        <div class="icon-step">🚀</div>
-        <h4>4. Stream</h4>
-      </div>
-    </div>
-  </section>
-
-  <!-- White Paper Section -->
-  <section class="white-paper">
-    <h2>White Paper</h2>
-    <p>Dive into the tech behind HashChain.</p>
-    <div class="white-paper-container">
-      <a id="whitepaper-link" href="./Documents/hashChainProtocolLight.pdf" target="_blank" class="btn">View White Paper</a>
-    </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <section class="cta">
-    <h2>Start Building with HashChain SDK Today!</h2>
-    <a href="https://github.com/pali101/hashchain-protocol" target="_blank" class="btn">Start Now</a>
-    <a href="mailto:team@hashchain.org" class="btn secondary">Talk to Us</a>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer with Social Media Links -->
   <footer>
-    <p>© 2025 HashChain. All Rights Reserved.</p>
-    <p><a href="mailto:team@hashchain.org">Contact Us</a> | <a href="https://twitter.com/hashchain">Twitter</a> | <a href="https://discord.gg/hashchain">Discord</a></p>
+    <div class="social-media">
+      <a href="https://twitter.com/YourUsername" target="_blank">Twitter</a>
+      <a href="https://www.linkedin.com/in/YourProfile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/pali101/hashchain-protocol" target="_blank">Github</a>
+    </div>
+    <p>© 2025 HashChain SDK. All rights reserved.</p>
   </footer>
-</body>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Particles.js Initialization
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 600 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 4, direction: 'none', random: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',  // Ensure it detects interaction on the entire canvas
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Hide the loading spinner after the page is fully loaded
+    window.onload = function() {
+      document.getElementById('loading').style.display = 'none';
+    };
+  </script>
+</body>
 </html>
