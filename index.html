@@ -1,170 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HashChain SDK - Particle Background</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-      overflow: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hashchain Protocol</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        color: #fff;
+        overflow: hidden;
+      }
 
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #1A1A2E;
-      z-index: 0;  /* Ensure particles layer is behind the content */
-    }
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #1a1a2e;
+        z-index: 0; /* Ensure particles layer is behind the content */
+      }
 
-    .content {
-      position: relative;
-      z-index: 1;  /* Content layer should be above particles */
-      text-align: center;
-      padding: 20vh 20px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    p {
-      font-size: 1.2rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #FFD700;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #1A1A2E;
-      text-align: center;
-      padding: 10px 0;
-      color: #fff;
-    }
-
-    footer .social-media a {
-      margin-right: 10px;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    footer .social-media a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
       .content {
-        padding: 15vh 10px;
+        position: relative;
+        z-index: 1; /* Content layer should be above particles */
+        text-align: center;
+        padding: 20vh 20px;
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 3rem;
+        font-family: "Orbitron", sans-serif;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       }
 
       p {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       }
-    }
 
-    /* Loading Spinner */
-    .loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-      display: block;
-    }
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
 
-    .spinner {
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #00FF00;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
+      a:hover {
+        text-decoration: underline;
+        color: #ffd700;
+      }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #1a1a2e;
+        text-align: center;
+        padding: 10px 0;
+        color: #fff;
+      }
 
-  </style>
-</head>
-<body>
-  <!-- Loading Spinner -->
-  <div id="loading" class="loading">
-    <div class="spinner"></div>
-  </div>
+      footer .social-media a {
+        margin-right: 10px;
+        color: #fff;
+        text-decoration: none;
+      }
 
-  <div id="particles-js"></div>
-  <div class="content">
-    <h1>HashChain Protocol SDK</h1>
-    <p>Fast, Fair, and Scalable – One Hash at a Time.</p>
-    <p><a href="https://github.com/pali101/hashchain-protocol" target="_blank">Get Started</a></p>
-  </div>
+      footer .social-media a:hover {
+        text-decoration: underline;
+      }
 
-  <!-- Footer with Social Media Links -->
-  <footer>
-    <div class="social-media">
-      <a href="https://twitter.com/YourUsername" target="_blank">Twitter</a>
-      <a href="https://www.linkedin.com/in/YourProfile" target="_blank">LinkedIn</a>
-      <a href="https://github.com/pali101/hashchain-protocol" target="_blank">Github</a>
-    </div>
-    <p>© 2025 HashChain SDK. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    // Particles.js Initialization
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 50, density: { enable: true, value_area: 600 } },
-        color: { value: '#ffffff' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 4, direction: 'none', random: false }
-      },
-      interactivity: {
-        detect_on: 'canvas',  // Ensure it detects interaction on the entire canvas
-        events: {
-          onhover: { enable: true, mode: 'repulse' },
-          onclick: { enable: true, mode: 'push' }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { particles_nb: 4 }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content {
+          padding: 15vh 10px;
         }
-      },
-      retina_detect: true
-    });
 
-    // Hide the loading spinner after the page is fully loaded
-    window.onload = function() {
-      document.getElementById('loading').style.display = 'none';
-    };
-  </script>
-</body>
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Loading Spinner */
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: block;
+      }
+
+      .spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #00ff00;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+      }
+
+      .get-started {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .get-started:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <div id="particles-js"></div>
+    <div class="content">
+      <h1>Hashchain Protocol</h1>
+      <p>Fast, Fair, and Scalable – One Hash at a Time.</p>
+      <p>
+        <a
+          href="https://github.com/pali101/hashchain-protocol"
+          target="_blank"
+          class="get-started"
+          >Get Started</a
+        >
+      </p>
+    </div>
+
+    <!-- Footer with Social Media Links -->
+    <footer>
+      <div class="social-media">
+        <a href="https://x.com/HC_Protocol" target="_blank">X</a>
+        <a
+          href="https://www.linkedin.com/company/hashchain-protocol"
+          target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/pali101/hashchain-protocol" target="_blank"
+          >Github</a
+        >
+      </div>
+      <p>© 2025 Hashchain Protocol. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      // Particles.js Initialization
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 600 } },
+          color: { value: "#ffffff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: { enable: true, speed: 4, direction: "none", random: false },
+        },
+        interactivity: {
+          detect_on: "canvas", // Ensure it detects interaction on the entire canvas
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+          modes: {
+            repulse: { distance: 100 },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+      });
+
+      // Hide the loading spinner after the page is fully loaded
+      window.onload = function () {
+        document.getElementById("loading").style.display = "none";
+      };
+    </script>
+  </body>
 </html>
