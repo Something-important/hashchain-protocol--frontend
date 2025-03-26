@@ -123,6 +123,18 @@
         background: rgba(255, 255, 255, 0.2);
       }
 
+      @media (max-width: 768px) {
+        .get-started {
+          padding: 8px 16px;
+          font-size: 1rem;
+        }
+      }
+
+      footer .social-media a {
+        margin: 5px 15px;
+        font-size: 1rem;
+      }
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -174,7 +186,10 @@
       // Particles.js Initialization
       particlesJS("particles-js", {
         particles: {
-          number: { value: 50, density: { enable: true, value_area: 600 } },
+          number: {
+            value: window.innerWidth < 768 ? 30 : 50,
+            density: { enable: true, value_area: 800 },
+          },
           color: { value: "#ffffff" },
           shape: { type: "circle" },
           opacity: { value: 0.5, random: true },
@@ -186,7 +201,12 @@
             opacity: 0.4,
             width: 1,
           },
-          move: { enable: true, speed: 4, direction: "none", random: false },
+          move: {
+            enable: true,
+            speed: window.innerWidth < 768 ? 2 : 4,
+            direction: "none",
+            random: false,
+          },
         },
         interactivity: {
           detect_on: "canvas", // Ensure it detects interaction on the entire canvas
